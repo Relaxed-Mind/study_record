@@ -1,0 +1,18 @@
+// 1강
+SQL: DBMS(데이터베이스 관리 시스템)에게 질의하는 명령어
+DBMS = Database + Management System
+질의-> 무엇을? -> 구조화된 데이터를
+
+데이터베이스: 
+중복을 없애는 방법으로 결함을 줄임 
+but 참조(방법: Relational DBMS), 동시성, 성능, 보안
+>> 관리시스템(동시성, 성능, 보안 관리)을 통해서 씀
+관리시스템: Oracle, MySQL, SQLserver...
+
+SQL(Structured Query Language)
+Query Language: 데이터를 입력, 수정, 꺼내달라 부탁 할 때 사용되는 명령어
+학생데이터, 주문데이터 등과 같은 큰 단위의 업무적인 단위로써
+데이터를 질의하는 것이 Structured 개념
+1. DDL: create/alter/drop <- 어떤 데이터를 쓸 것인지 밝힘
+2. DML: select/insert/update/delete <- 해줘
+3. DCL: grant/revoke <- 권한? 제어 명령어
