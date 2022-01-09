@@ -16,3 +16,21 @@ Query Language: 데이터를 입력, 수정, 꺼내달라 부탁 할 때 사용되는 명령어
 1. DDL: create/alter/drop <- 어떤 데이터를 쓸 것인지 밝힘
 2. DML: select/insert/update/delete <- 해줘
 3. DCL: grant/revoke <- 권한? 제어 명령어
+
+// 2강
+!!오라클 설치 오류 해결 방법!!
+1. pc 사용자 이름을 영어로 바꾼다 !!
+2. 오라클 설치 경로에 한글이 없게한다. 
+로 해결함. //22.1.9
+
+오라클은 서버 프로그램이고 사용자가 직접 접근이 안된다
+-> 사용자 인터페이스 갖고있는 클라이언트 프로그램이 있어야함.
+(sqlplus, sql developer)를 사용하여 서버와 통신
+1.인증 2.실행 3.결과확인
+
+sqlplus -> 사용자명: sys as sysdba 비밀번호: -> 접속
+
+// 3강
+SQL developer: 클라이언트 도구 다운
+IO오류가 났는데 아래 걸로 하나씩 해보니까 해결됐다.
+https://jhnyang.tistory.com/272
