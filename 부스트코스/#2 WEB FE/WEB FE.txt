@@ -1,0 +1,157 @@
+웹
+
+- 프론트엔드
+
+사용자에게 웹을 통해 다양한 (리소스)콘텐츠(문서,동영상,사진등)을 제공한다.
+사용자의 요청(요구사항)에 반응해서 동작한다.
+
+역할: 웹콘텐츠를 잘 보여주기 위해서 구조를 만들어야 함(신문, 책등과 같이)
+적절한 배치와 일관된 디자인등을 제공해야 함(보기좋게)
+사용자 요청을 잘 반영해야 함(소통하듯이)
+
+HTML CSS JavaScript
+
+
+- HTML
+tag의 종류
+
+태그는 그 의미에 맞춰서 사용해야 한다.
+. 링크
+. 이미지
+. 목록
+. 제목
+
+div: Defines a section in a document
+ul: Defines an unordered list (ul안에 li 넣는듯)
+p: Defines a paragraph
+
+레이아웃을 위한 태그
+. header
+. section
+. nav
+. footer
+. aside
+
+- PC 웹 사이트에서 브라우저 버전에 따른 호환성 이슈로 인해 div태그의 클래스명으로 레이아웃을 정의한다.
+ex) <div class="footer"> </div>
+- 모바일에서는  호환되는 브라우저버전이 많기 때문에 <header>, <footer> 태그를 직접 사용한다.
+
+HTML structure design
+div 남발하지말자.
+
+class와 id
+class는 중복해서 사용 가능하지만 id는 고유한 값이어서 하나만 써야함.
+class: 비슷한 스타일을 여기저기에 같이 표현하기 위해서 css에 클래스를 만들어두고 부여.
+
+- CSS
+기본 사용법: selector(선택자) {property :value; }
+ex) span { color : red;}
+
+style을 HTML 페이지에 적용하는 세가지 방법
+. inline (html 태그 안에다가)
+. internal (style 태그로 지정, 헤드 안에 넣음) html에 css넣는건 좋은 방법 아님, 
+장점은 별도 css파일 관리 x, 서버에 css파일을 부르기 위해 브라우저가 요청 x
+. external (외부파일(.css)로 지정하기) 보통 이렇게 함
+
++)생각해보기
+
+1. javascript로 동적으로 css코드를 수정하려고 하면 어떻게 해야 할까요? 
+나중에 차츰 알게 되지만, 미리 어떤 방법이 있을지 고민해보세요. 
+2. 구글 웹사이트는 어떻게 css를 선언하고 있을까요? 
+구글 웹사이트(구글 내 여러가지 웹사이트중 하나)에서 소스보기를 해서 CSS 코드를 한번 찾아보세요. internal 방식이나 external 방식 등을 목격할 수 있을 겁니다.
+
+
+- CSS 상속
+감싸져있는 부분은 다 적용됨. 
+하지만 box-model의 속성들(width, height, margin, padding, border)과 
+같은 배치와 관련된 속성은 상속 x
+
+. cascading
+CSS는 여러가지 스타일정보를 기반으로 최종적으로 '경쟁'에 의해서 적절한 스타일이 반영된다.
+선언방식에 따른 차이 (동일하면 나중 것이 적용, 구체적인 것이 있다면 먼저, id>class > element)
+(자세히 보려면 구글에 css specificity 검색)
+inline > internal > external
+
++)생각해보기
+class는 우선점수가 10점, id는 100점이라고 표현했습니다. 
+그런데 class 가 11개라면 어떻게 될까요?  id보다 우선순위가 높을까요? 실제로는 그렇지 않습니다.
+이현상은 올림픽순위가 금메달의 갯수를 통해 우선결정되는 것과 비슷한데요.
+id는 금메달, class는 은메달, tag는 동메달로 이해하는게 편합니다.
+
+
+-CSS Selector
+트리구조로 돼있는 데이터를 빨리 찾아가는 방법.(DOM tree)
+=>HTML의 요소를 tag, id, class, html 태그속성등을 통해 쉽게 찾아주는 방법
+element에 style을 지정하기 위해서, 3가지 기본 선택자를 사용할 수 있음
+tag, id, class
+tag: span
+id: #id
+class: .class
+
+. id, class 요소 선택자와 함께 사용 가능
+div.myclassname {color : red}, span#myspan {color:red;}
+. 그룹 선택 가능
+h1, span, div { color : red}, 
+h1, span, div#id { color : red}, 
+h1.span, div.classname { color : red} 
+
+. 하위 요소 선택(공백)
+<div id="jisu">
+	<div>
+		!<span> span tag </span>!
+	</div>
+	!<span> span tag 2 </span>!
+</div>
+
+#jisu span {color: red}
+
+. 자식 선택(>)
+<div id="jisu">
+	<div>
+		<span> span tag </span>
+	</div>
+	!<span> span tag 2 </span>!
+</div>
+#jisu > span {color:red}
+
+
+. n번째 자식요소를 선택
+<div id="jisu">
+ <h2>단락 선택
+
++) 생각해보기
+pseudo-class인 nth-child 와 nth-of-type의 차이점은 무엇일까요? 
+두 개의 차이점을 꼭 기억하시기 바랍니다.
+https://thrillfighter.tistory.com/575 (nth-child 정리 굿)
+
+nth-child는 <선택자>:nth-child(3)이라고 할때
+<선택자>의 형제중 3번째 
+
+nth-of-type는 <선택자>:nth-of-type(3)이라고 할때
+<선택자>의 같은 선택자의 형제중 3번째 (p이면 p)
+
+#jisu > p:nth-child(2) 는 jisu라는 id를 가진 태그의 두번째 자식이 p태그이면 
+해당 태그에 css를 적용해달라는 뜻이다.
+(만약 첫번째자식이 p태그 두번쨰자식이 span 세번째 자식이 p태그이면 적용이 안된다.) 
+(두번째 자식이 아니므로)
+
+#jisu > p:nth-of-type(2)는  jisu라는 id를 가진 태그 자식들 중에 
+두번째로 나오는 p태그에 CSS적용을 하는 것이다. 
+nth-child와 차이점으로 자식이 p, span , p여도 
+세번째 나오는 p가 두번째로 나오는 p태그이므로 css 적용이 된다.
+
+- 폰트, background
+font color는 16진수 표기법으로 가장 많이 사용
+font-size: 2em => 부모의 size pixel의 2배
+background-image는 찾아서 해보자
+font-family로 폰트 바꿀 수 있음
+
+
+
+
+
+
+
+
+
+
